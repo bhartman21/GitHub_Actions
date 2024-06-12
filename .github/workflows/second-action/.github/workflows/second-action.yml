@@ -1,0 +1,30 @@
+name: My First Workflow             # Naming my workflow as My First Workflow
+on: [workflow_dispatch, push]       # Defining the event(s) that trigger the workflow
+jobs:                               # Defining the job(s) that will be executed in the workflow
+  firstJob:                           # Defining the first job in the workflow
+    runs-on: ubuntu-latest              # Defining the runner for the job
+    steps:                              # Defining the steps that will be executed in the job
+      ## Defining the first step in the job
+      - name: stepOne                                 # Naming the step as stepOne
+        run: echo "You have taken the first step!"    # Running the echo command to print the message
+      ## Defining the second step in the job
+      - name: stepTwo                                 # Naming the step as stepTwo 
+        run: echo "You have taken your last step!"    # Running the echo command to print the message
+      ## Defining the third step in the job
+      - name: stepThree                               # Naming the step as stepThree
+        run: echo "You have completed the workflow!"  # Running the echo command to print the message
+  secondJob:                            # Defining the second job in the workflow
+    runs-on: ubuntu-latest                # Defining the runner for the job 
+    steps:                                # Defining the steps that will be executed in the job
+      - name: get code                      # Naming the step as get code
+        uses: actions/checkout@v3           # Using the checkout action to get the code (instead of running my own command : https://github.com/marketplace/actions)
+        #with:                              # with is used to define any configuration that the action allows or requires
+        #  ...
+      - name: Install NodeJS                # Naming another step as [Install NodeJS]
+        uses: actions/setup-node@v3         # Using the setup-node action to install NodeJS
+        with:                               # with is used to define any configuration that the action allows or requires
+          node-version: '18'                # Defining the version of NodeJS to be installed
+      - name: Install Dependencies          # Naming another step as [Install Dependencies]
+        run: npm ci
+      - name: run tests                     # Naming another step as [run tests]
+        run: npm test                       # Running the npm test command to run the tests
