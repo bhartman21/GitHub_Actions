@@ -1,10 +1,15 @@
-name: My First Workflow
-on: workflow_dispatch
-jobs:
-  firstJob:
-    runs-on: ubuntu-latest
-    steps:
-      - name: stepOne
-        run: echo "You have taken the first step!"
-      - name: stepTwo
-        run: echo "You have taken your last step!"
+name: My First Workflow             # Naming my workflow as My First Workflow
+on: workflow_dispatch               # Defining the event(s) that trigger the workflow
+jobs:                                 # Defining the job(s) that will be executed in the workflow
+  firstJob:                             # Defining the first job in the workflow
+    runs-on: ubuntu-latest                # Defining the runner for the job
+    steps:                                # Defining the steps that will be executed in the job
+      ## Defining the first step in the job
+      - name: stepOne                                 # Naming the step as stepOne
+        run: echo "You have taken the first step!"    # Running the echo command to print the message
+      ## Defining the second step in the job
+      - name: stepTwo                                 # Naming the step as stepTwo 
+        run: echo "You have taken your last step!"    # Running the echo command to print the message
+      ## Defining the third step in the job
+      - name: stepThree                               # Naming the step as stepThree
+        run: echo "You have completed the workflow!"  # Running the echo command to print the message
