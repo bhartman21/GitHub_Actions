@@ -1,4 +1,4 @@
-name: My First Workflow             # Naming my workflow as My First Workflow
+name: My Second Workflow             # Naming my workflow as My First Workflow
 on: [workflow_dispatch, push]       # Defining the event(s) that trigger the workflow
 jobs:                               # Defining the job(s) that will be executed in the workflow
   firstJob:                           # Defining the first job in the workflow
